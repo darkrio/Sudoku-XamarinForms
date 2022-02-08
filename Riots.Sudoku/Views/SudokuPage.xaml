@@ -28,8 +28,88 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" x:Name="btn_0_0"></Button>
+                <Button Grid.Row="0" Grid.Column="1" x:Name="btn_0_1"></Button>
+                <Button Grid.Row="0" Grid.Column="2" x:Name="btn_0_2"></Button>
+                <Button Grid.Row="0" Grid.Column="3" x:Name="btn_0_3"></Button>
+                <Button Grid.Row="0" Grid.Column="4" x:Name="btn_0_4"></Button>
+                <Button Grid.Row="0" Grid.Column="5" x:Name="btn_0_5"></Button>
+                <Button Grid.Row="0" Grid.Column="6" x:Name="btn_0_6"></Button>
+                <Button Grid.Row="0" Grid.Column="7" x:Name="btn_0_7"></Button>
+                <Button Grid.Row="0" Grid.Column="8" x:Name="btn_0_8"></Button>
+                <Button Grid.Row="1" Grid.Column="0" x:Name="btn_1_0"></Button>
+                <Button Grid.Row="1" Grid.Column="1" x:Name="btn_1_1"></Button>
+                <Button Grid.Row="1" Grid.Column="2" x:Name="btn_1_2"></Button>
+                <Button Grid.Row="1" Grid.Column="3" x:Name="btn_1_3"></Button>
+                <Button Grid.Row="1" Grid.Column="4" x:Name="btn_1_4"></Button>
+                <Button Grid.Row="1" Grid.Column="5" x:Name="btn_1_5"></Button>
+                <Button Grid.Row="1" Grid.Column="6" x:Name="btn_1_6"></Button>
+                <Button Grid.Row="1" Grid.Column="7" x:Name="btn_1_7"></Button>
+                <Button Grid.Row="1" Grid.Column="8" x:Name="btn_1_8"></Button>
+                <Button Grid.Row="2" Grid.Column="0" x:Name="btn_2_0"></Button>
+                <Button Grid.Row="2" Grid.Column="1" x:Name="btn_2_1"></Button>
+                <Button Grid.Row="2" Grid.Column="2" x:Name="btn_2_2"></Button>
+                <Button Grid.Row="2" Grid.Column="3" x:Name="btn_2_3"></Button>
+                <Button Grid.Row="2" Grid.Column="4" x:Name="btn_2_4"></Button>
+                <Button Grid.Row="2" Grid.Column="5" x:Name="btn_2_5"></Button>
+                <Button Grid.Row="2" Grid.Column="6" x:Name="btn_2_6"></Button>
+                <Button Grid.Row="2" Grid.Column="7" x:Name="btn_2_7"></Button>
+                <Button Grid.Row="2" Grid.Column="8" x:Name="btn_2_8"></Button>
+                <Button Grid.Row="3" Grid.Column="0" x:Name="btn_3_0"></Button>
+                <Button Grid.Row="3" Grid.Column="1" x:Name="btn_3_1"></Button>
+                <Button Grid.Row="3" Grid.Column="2" x:Name="btn_3_2"></Button>
+                <Button Grid.Row="3" Grid.Column="3" x:Name="btn_3_3"></Button>
+                <Button Grid.Row="3" Grid.Column="4" x:Name="btn_3_4"></Button>
+                <Button Grid.Row="3" Grid.Column="5" x:Name="btn_3_5"></Button>
+                <Button Grid.Row="3" Grid.Column="6" x:Name="btn_3_6"></Button>
+                <Button Grid.Row="3" Grid.Column="7" x:Name="btn_3_7"></Button>
+                <Button Grid.Row="3" Grid.Column="8" x:Name="btn_3_8"></Button>
+                <Button Grid.Row="4" Grid.Column="0" x:Name="btn_4_0"></Button>
+                <Button Grid.Row="4" Grid.Column="1" x:Name="btn_4_1"></Button>
+                <Button Grid.Row="4" Grid.Column="2" x:Name="btn_4_2"></Button>
+                <Button Grid.Row="4" Grid.Column="3" x:Name="btn_4_3"></Button>
+                <Button Grid.Row="4" Grid.Column="4" x:Name="btn_4_4"></Button>
+                <Button Grid.Row="4" Grid.Column="5" x:Name="btn_4_5"></Button>
+                <Button Grid.Row="4" Grid.Column="6" x:Name="btn_4_6"></Button>
+                <Button Grid.Row="4" Grid.Column="7" x:Name="btn_4_7"></Button>
+                <Button Grid.Row="4" Grid.Column="8" x:Name="btn_4_8"></Button>
+                <Button Grid.Row="5" Grid.Column="0" x:Name="btn_5_0"></Button>
+                <Button Grid.Row="5" Grid.Column="1" x:Name="btn_5_1"></Button>
+                <Button Grid.Row="5" Grid.Column="2" x:Name="btn_5_2"></Button>
+                <Button Grid.Row="5" Grid.Column="3" x:Name="btn_5_3"></Button>
+                <Button Grid.Row="5" Grid.Column="4" x:Name="btn_5_4"></Button>
+                <Button Grid.Row="5" Grid.Column="5" x:Name="btn_5_5"></Button>
+                <Button Grid.Row="5" Grid.Column="6" x:Name="btn_5_6"></Button>
+                <Button Grid.Row="5" Grid.Column="7" x:Name="btn_5_7"></Button>
+                <Button Grid.Row="5" Grid.Column="8" x:Name="btn_5_8"></Button>
+                <Button Grid.Row="6" Grid.Column="0" x:Name="btn_6_0"></Button>
+                <Button Grid.Row="6" Grid.Column="1" x:Name="btn_6_1"></Button>
+                <Button Grid.Row="6" Grid.Column="2" x:Name="btn_6_2"></Button>
+                <Button Grid.Row="6" Grid.Column="3" x:Name="btn_6_3"></Button>
+                <Button Grid.Row="6" Grid.Column="4" x:Name="btn_6_4"></Button>
+                <Button Grid.Row="6" Grid.Column="5" x:Name="btn_6_5"></Button>
+                <Button Grid.Row="6" Grid.Column="6" x:Name="btn_6_6"></Button>
+                <Button Grid.Row="6" Grid.Column="7" x:Name="btn_6_7"></Button>
+                <Button Grid.Row="6" Grid.Column="8" x:Name="btn_6_8"></Button>
+                <Button Grid.Row="7" Grid.Column="0" x:Name="btn_7_0"></Button>
+                <Button Grid.Row="7" Grid.Column="1" x:Name="btn_7_1"></Button>
+                <Button Grid.Row="7" Grid.Column="2" x:Name="btn_7_2"></Button>
+                <Button Grid.Row="7" Grid.Column="3" x:Name="btn_7_3"></Button>
+                <Button Grid.Row="7" Grid.Column="4" x:Name="btn_7_4"></Button>
+                <Button Grid.Row="7" Grid.Column="5" x:Name="btn_7_5"></Button>
+                <Button Grid.Row="7" Grid.Column="6" x:Name="btn_7_6"></Button>
+                <Button Grid.Row="7" Grid.Column="7" x:Name="btn_7_7"></Button>
+                <Button Grid.Row="7" Grid.Column="8" x:Name="btn_7_8"></Button>
+                <Button Grid.Row="8" Grid.Column="0" x:Name="btn_8_0"></Button>
+                <Button Grid.Row="8" Grid.Column="1" x:Name="btn_8_1"></Button>
+                <Button Grid.Row="8" Grid.Column="2" x:Name="btn_8_2"></Button>
+                <Button Grid.Row="8" Grid.Column="3" x:Name="btn_8_3"></Button>
+                <Button Grid.Row="8" Grid.Column="4" x:Name="btn_8_4"></Button>
+                <Button Grid.Row="8" Grid.Column="5" x:Name="btn_8_5"></Button>
+                <Button Grid.Row="8" Grid.Column="6" x:Name="btn_8_6"></Button>
+                <Button Grid.Row="8" Grid.Column="7" x:Name="btn_8_7"></Button>
+                <Button Grid.Row="8" Grid.Column="8" x:Name="btn_8_8"></Button>
             </Grid>
             <Grid x:Name="NumberGrid">
                 <Grid.ColumnDefinitions>

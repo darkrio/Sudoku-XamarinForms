@@ -17,9 +17,8 @@ namespace Riots.Sudoku.Views
         public string[,] history = new string[9, 9];
         public int x = 0;
         public int y = 0;
-        const int blank = 40;
+        private const int blank = 40;
         private Button currentButton;
-        private Dictionary<string, string> dictButtons = new Dictionary<string, string>();
 
         public SudokuPage()
         {
@@ -30,6 +29,7 @@ namespace Riots.Sudoku.Views
         public void InitNumberButton() 
         {
             var num = 1;
+            //生成数字键盘
             for (var i = 0; i < 2; i++)
             {
                 for (var j = 0; j < 5; j++)
@@ -52,21 +52,18 @@ namespace Riots.Sudoku.Views
                     num++;
                 }
             }
-
-            for (var i = 0; i < 9; i++)
+            //修饰数独按钮
+            foreach (View v in this.SudokuGrid.Children)
             {
-                for (var j = 0; j < 9; j++)
+                if (v is Button btn)
                 {
-                    int m = i / 3;
-                    int n = j / 3;
-                    var btn = new Button();
+                    btn.Text = " ";
                     btn.Padding = 0;
                     btn.Margin = 0;
                     btn.FontSize = 20;
-                    btn.Clicked += btnSudokuItem_Clicked;
                     btn.BorderWidth = 2;
-                    btn.Text = "  ";
-                    SudokuGrid.Children.Add(btn, i, j);
+                    btn.Clicked += btnSudokuItem_Clicked;
+                    btn.IsEnabled = false;
                 }
             }
         }
@@ -77,17 +74,17 @@ namespace Riots.Sudoku.Views
             if (currentButton != null)
             {
                 currentButton.Text = b.Text;
-                currentButton.BorderColor = Color.Black;
+                string btnName = currentButton.StyleId;
+                currentButton.TextColor = !IsValid(int.Parse(btnName.Split('_')[1]), int.Parse(btnName.Split('_')[2]), int.Parse(b.Text.Trim()))
+                    ? Color.Red
+                    : Color.White;
             }
         }
 
         private void btnClear_Clicked(object sender, EventArgs e)
         {
             if (currentButton != null)
-            {
-                currentButton.Text = "";
-                currentButton.BorderColor = Color.Black;
-            }
+                currentButton.Text = " ";
         }
         
         private void InitSudoku() 
@@ -159,7 +156,6 @@ namespace Riots.Sudoku.Views
                             string[] col = GetColumn(j);
                             string[] box = GetBox(i, j);
                             int[] result = GetPossibleNumber(row, col, box);
-
                             switch (result.Length)
                             {
                                 case 0:
@@ -207,7 +203,7 @@ namespace Riots.Sudoku.Views
         {
             string[] row = new string[9];
             for (int i = 0; i < 9; i++)
-                row[i] = (sudoku[x, i]);
+                row[i] = sudoku[x, i];
 
             return row;
         }
@@ -216,8 +212,7 @@ namespace Riots.Sudoku.Views
         {
             string[] column = new string[9];
             for (int i = 0; i < 9; i++)
-                column[i] = (sudoku[i, y]);
-
+                column[i] = sudoku[i, y];
             return column;
         }
 
@@ -225,22 +220,19 @@ namespace Riots.Sudoku.Views
         {
             int dx = (int)(x / 3);
             int dy = (int)(y / 3);
-
             string[] arr = new string[9];
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
-                    arr[i * 3 + j] = (sudoku[i + dx * 3, j + dy * 3]);
+                    arr[(i * 3) + j] = sudoku[i + dx * 3, j + dy * 3];
 
             }
-
             return arr;
         }
 
         private static int[] GetPossibleNumber(string[] row, string[] col, string[] box)
         {
             int[] arr = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
             for (int i = 0; i < 9; i++)
             {
                 if (row[i].Trim() != "")
@@ -252,14 +244,12 @@ namespace Riots.Sudoku.Views
                 if (box[i].Trim() != "")
                     arr[Int32.Parse(box[i]) - 1]++;
             }
-
             ArrayList res = new ArrayList();
             for (int i = 0; i < 9; i++)
             {
                 if (arr[i] == 0)
                     res.Add(i + 1);
             }
-
             return (int[])res.ToArray(typeof(int));
         }
 
@@ -299,57 +289,63 @@ namespace Riots.Sudoku.Views
                         count++;
                 }
             }
-            if (count == 0)
-                return true;
-            return false;
+            return count == 0;
         }
 
-        private bool IsValid(string x, string y, string number)
+        private bool IsValid(int x, int y, int number)
         {
-            bool ret = true;
-            return ret;
+            string[] row = GetRow(x);
+            string[] col = GetColumn(y);
+            string[] box = GetBox(x, y);
+            foreach (string item in row)
+            {
+                if (item.Trim() == "") continue;
+                if (number == int.Parse(item))
+                    return false;
+            }
+            foreach (string item in col)
+            {
+                if (item.Trim() == "") continue;
+                if (number == int.Parse(item))
+                    return false;
+            }
+            foreach (string item in box)
+            {
+                if (item.Trim() == "") continue;
+                if (number == int.Parse(item))
+                    return false;
+            }
+            return true;
         }
 
         private void btnGen_Clicked(object sender, EventArgs e)
         {
-            this.SudokuGrid.Children.Clear();
-            this.dictButtons.Clear();
-
            //生成数独数组
             GetNewSudoku();
-            int num = 0;
             for (var i = 0; i < 9; i++)//第I列
             {
                 for (var j = 0; j < 9; j++)//第J行
                 {
-                    int m = i / 3;
-                    int n = j / 3;
-                    var btn = new Button();
-                    btn.Padding = 0;
-                    btn.Margin = 0;
-                    btn.FontSize = 20;
-                    btn.Clicked += btnSudokuItem_Clicked;
-                    btn.BorderWidth = 2;
+                    string name = "btn_" + j + "_" + i;
+                    Button btn = (Button)this.SudokuGrid.FindByName(name);
                     btn.Text = sudoku[j, i].ToString();
-                    SudokuGrid.Children.Add(btn, i, j);
                     if (btn.Text.Trim() != "")
                         btn.IsEnabled = false;
-                    this.dictButtons.Add(j + "-" + i, num.ToString());
-                    num++;
+                    else
+                        btn.IsEnabled = true;
                 }
             }
         }
 
         private void btnSudokuItem_Clicked(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.SudokuGrid.Children.Count; i++)
+            foreach (View v in this.SudokuGrid.Children)
             {
-                if (this.SudokuGrid.Children[i] is Button btn)
+                if (v is Button btn)
                 {
                     btn.BorderColor = Color.Black;
                 }
             }
-
             Button b = (Button)sender;
             b.BorderColor = Color.White;
             currentButton = b;
